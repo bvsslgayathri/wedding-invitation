@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gayathri & Amaresh - Wedding Celebration</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Global Overlay for fade effect -->
+    <div id="global-overlay"></div>
+
+    <!-- Opening Scroll Animation -->
+    <div id="opening-layer">
+        <div id="story-layer"></div>
+        
+        <div class="scroll-container">
+            <!-- Top Roller -->
+            <div class="scroll-roller top"></div>
+            
+            <!-- Tassels -->
+            <div class="tassel-string left"></div>
+            <div class="tassel-string right"></div>
+            
+            <!-- Parchment Content -->
+            <div class="scroll-parchment">
+                <div class="scroll-content">
+                    <img src="logo.png" alt="Wedding Logo" class="custom-logo">
+                    <h2>Gayathri & Amaresh</h2>
+                    <span>గాయత్రి & అమరేష్</span>
+                </div>
+            </div>
+            
+            <!-- Bottom Roller -->
+            <div class="scroll-roller bottom"></div>
+            
+            <!-- Ganesh Seal -->
+            <div class="scroll-seal">
+                <img src="ganesh_seal.png" alt="Ganesh Seal" class="seal-image">
+            </div>
+        </div>
+        
+        <div class="tap-hint">
+            <p>✨ Tap to Open ✨</p>
+            <span>Click Anywhere</span>
+        </div>
+    </div>
+
+    <!-- Flower Petal Rain -->
+    <div id="rain-container"></div>
+
+    <!-- Hanging Decorations -->
+    <div class="hanging-decor">
+        <img src="umbrella.png" alt="Decoration" class="umbrella u1">
+        <img src="umbrella.png" alt="Decoration" class="umbrella u2">
+        <img src="umbrella.png" alt="Decoration" class="umbrella u3">
+        <img src="umbrella.png" alt="Decoration" class="umbrella u4">
+    </div>
+
+    <!-- Music Player -->
+    <div id="music-player" class="music-player">
+        <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="background-music" loop>
+            <source src="bgsong.mpeg" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Hero Card -->
+        <div class="hero-card muggu-corners">
+            <!-- Sacred Corner Symbols -->
+            <div class="corner-symbol top-left">
+                <span class="symbol-om">ఓం</span>
+            </div>
+            <div class="corner-symbol top-right">
+                <span class="symbol-swastika">卍</span>
+            </div>
+            <p class="subhalekha">We Joyfully Invite You To</p>
+            <h1 class="couple-names">Gayathri & Amaresh</h1>
+            <p class="telugu-names">గాయత్రి & అమరేష్</p>
+            <div class="wedding-text">Wedding</div>
+
+            <div class="date-divider">MAY 08, 2026</div>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Rajahmundry & Jaggampeta</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-grid">
+                <div class="cd-box">
+                    <span class="cd-num" id="days">00</span>
+                    <span class="cd-label">Days</span>
+                </div>
+                <div class="cd-box">
+                    <span class="cd-num" id="hours">00</span>
+                    <span class="cd-label">Hours</span>
+                </div>
+                <div class="cd-box">
+                    <span class="cd-num" id="minutes">00</span>
+                    <span class="cd-label">Minutes</span>
+                </div>
+                <div class="cd-box">
+                    <span class="cd-num" id="seconds">00</span>
+                    <span class="cd-label">Seconds</span>
+                </div>
+            </div>
+
+            <!-- Family Section -->
+            <div class="family-grid">
+                <div class="family-group">
+                    <p class="side-tag">The Bride</p>
+                    <div class="family-photo-container">
+                        <img src="gayathri.jpg" alt="Gayathri" class="family-photo">
+                    </div>
+                    <div class="family-header">
+                        Gayathri
+                        <span class="te">గాయత్రి</span>
+                    </div>
+                    <div class="names-list">
+                        <p>Daughter of Mr. Chalapathi Rao & Mrs. Ramalakshmi<span class="te">శ్రీ చలపతి రావు & శ్రీమతి రామలక్ష్మి కుమార్తె</span></p>
+                    </div>
+                </div>
+                
+                <div class="family-group">
+                    <p class="side-tag">The Groom</p>
+                    <div class="family-photo-container">
+                        <img src="amaresh.jpg" alt="Amaresh" class="family-photo">
+                    </div>
+                    <div class="family-header">
+                        Amaresh
+                        <span class="te">అమరేష్</span>
+                    </div>
+                    <div class="names-list">
+                        <p>Son of Mr. Venkata Naga Veerraju & Mrs. Chandrika<span class="te">శ్రీ వెంకాటా నాగా వీరాజు & శ్రీమతి చంద్రిక కుమారుడు</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invitation Message -->
+        <div class="invite-msg">
+            <p>With the blessings of our families,</p>
+            <p>we request the honor of your presence as we begin our journey together</p>
+            <p class="msg-highlight">in love, laughter, and happily ever after</p>
+        </div>
+
+        <!-- Wedding Schedule -->
+        <h2 class="schedule-title">Wedding Celebrations</h2>
+        <p class="schedule-sub">వివాహ వేడుకలు</p>
+
+        <div class="events-wrapper">
+            <!-- Groom Making -->
+            <div class="date-card card-1">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 07, 2026 - Thursday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Groom Making</h3>
+                    <p class="ev-telugu">పెళ్లికొడుకు వేడుక</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 6:28 AM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Jaggampeta, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/9VyicR66nCoFUCdv6" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Groom Haldi -->
+
+            <div class="date-card card-2">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 07, 2026 - Thursday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Groom Haldi</h3>
+                    <p class="ev-telugu">పెళ్లికొడుకు హల్ది</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 4:00 PM - 6:00 PM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Jaggampeta, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/9VyicR66nCoFUCdv6" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Bride Making -->
+
+            <div class="date-card card-3">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 08, 2026 - Friday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Bride Making</h3>
+                    <p class="ev-telugu">వధువు వేడుక</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 6:00 AM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Rajahmundry, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567891!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/o4Zmr5HihpcqhzPi7" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Bride Haldi -->
+
+            <div class="date-card card-4">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 08, 2026 - Friday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Bride Haldi</h3>
+                    <p class="ev-telugu">వధువు హల్ది</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 11:00 AM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Rajahmundry, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567892!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/twSdv7CkrVjzTM369" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pradhanam -->
+
+            <div class="date-card card-5">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 08, 2026 - Friday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Pradhanam</h3>
+                    <p class="ev-telugu">ప్రధనం</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 5:00 PM - 5:30 PM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Rajahmundry, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567893!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/twSdv7CkrVjzTM369" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Reception dinner -->
+            <div class="date-card card-6">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 08, 2026 - Friday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Reception dinner</h3>
+                    <p class="ev-telugu">రిసెప్షన్ డిన్నర్</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 7:00 PM - 9:00 PM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Rajahmundry, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567894!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/twSdv7CkrVjzTM369" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Wedding Day Card -->
+            <div class="date-card card-7 wedding">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 08, 2026 - Friday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Wedding Ceremony</h3>
+                    <p class="ev-telugu">వివాహ వేడుక</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 9:00 PM - 1:00 AM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Rajahmundry, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567894!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/twSdv7CkrVjzTM369" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Reception Card -->
+            <div class="date-card card-8">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 10, 2026 - Sunday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Reception Lunch</h3>
+                    <p class="ev-telugu">రిసెప్షన్, భోజనం</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 12:00 PM - 2:00 PM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Jaggampeta, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567895!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/39ipS9B8ydi56L598" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Sangeet Card -->
+            <div class="date-card card-9">
+                <div class="date-header">
+                    <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                    May 10, 2026 - Sunday
+                </div>
+                <div class="event-item">
+                    <h3 class="ev-title">Sangeet Night, Dinner</h3>
+                    <p class="ev-telugu">సంగీత్ రాత్రి, డిన్నర్</p>
+                    <p class="ev-detail"><i class="far fa-clock"></i> 4:00 PM - 7:00 PM</p>
+                    <div class="location-row">
+                        <p class="ev-detail"><i class="fas fa-map-marker-alt"></i> Jaggampeta, AP</p>
+                        <span class="map-icon" onclick="toggleMap(this)">
+                            <i class="fas fa-map"></i>
+                        </span>
+                    </div>
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3827.8!2d82.0!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDU0JzAwLjAiTiA4MsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567896!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/39ipS9B8ydi56L598" target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thank You Card -->
+        <div class="thankyou-card muggu-corners">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🙏</div>
+            <h2 class="couple-names-small">Thank You</h2>
+            <p class="telugu-names" style="font-size: 1.5rem; margin-top: 10px;">ధన్యవాదాలు</p>
+            
+            <p style="margin-top: 25px; font-size: 1.1rem; line-height: 1.8;">
+                Your presence is the greatest gift we could ask for.<br>
+                Thank you for being part of our special day and<br>
+                for the love, laughter, and blessings you bring into our lives.
+            </p>
+            
+            <p style="margin-top: 20px; font-size: 1rem; color: var(--gold-dark); font-weight: 600;">
+                As we begin this new chapter together,<br>
+                we carry your warmth and wishes in our hearts.
+            </p>
+            
+            <div style="margin-top: 25px; padding: 15px; background: rgba(218, 165, 32, 0.1); border-radius: 10px; border-left: 3px solid var(--gold);">
+                <p style="font-style: italic; color: var(--maroon); font-size: 0.95rem;">
+                    "Two souls, one heart, blessed by the love of family and friends"
+                </p>
+            </div>
+            
+            <p style="margin-top: 25px; font-style: italic; font-size: 1.05rem;">Forever grateful,</p>
+            <p style="font-family: 'Pinyon Script', cursive; font-size: 2.5rem; color: var(--maroon); margin-top: 10px;">Gayathri & Amaresh</p>
+            <p style="font-family: 'Noto Sans Telugu', sans-serif; font-size: 1.3rem; color: var(--gold-dark); margin-top: 5px;">గాయత్రి & అమరేష్</p>
+            
+            <div style="margin-top: 20px; font-size: 2rem;">💕✨🌸</div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="website-footer">
+            <div class="footer-content">
+                <p class="footer-single-line">
+                    Designed & Developed with ❤️ by Gayathri & Amaresh (గాయత్రి & అమరేష్) © 2026
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Animation Stage -->
+    <div id="animation-stage">
+        <!-- Elephants Scene -->
+        <div class="scene scene-elephants active">
+            <img src="elephant.gif" alt="Elephant" class="elephant left e1">
+            <img src="elephant.gif" alt="Elephant" class="elephant left e2">
+            <img src="elephant.gif" alt="Elephant" class="elephant right e1">
+            <img src="elephant.gif" alt="Elephant" class="elephant right e2">
+        </div>
+        
+        <!-- Couple Entry Scene -->
+        <div class="scene scene-entry">
+            <img src="bride_entry.png" alt="Bride" class="person left">
+            <img src="groom_entry.png" alt="Groom" class="person right">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

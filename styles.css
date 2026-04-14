@@ -1,0 +1,1684 @@
+/* ===================================
+   INDIAN WEDDING THEME - ENHANCED
+   =================================== */
+
+:root {
+    /* Color Palette */
+    --gold: #d4af37;
+    --gold-dark: #b8860b;
+    --brown-wood: #4e342e;
+    --brown-dark: #2d1e1a;
+    --maroon: #800000;
+    --parchment: #fffbf0;
+    --card-text: #4a2c2a;
+    --card-border: #d4af37;
+    --date-strip-bg: rgba(250, 235, 215, 0.95);
+    
+    /* Fonts */
+    --script-font: 'Pinyon Script', 'Great Vibes', cursive;
+    --body-font: 'Montserrat', sans-serif;
+    --display-font: 'Playfair Display', serif;
+    
+    /* Brightness overlay */
+    --overlay-opacity: 0.4;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: #000;
+    background-image: url('bg2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--card-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.1s linear;
+    opacity: var(--overlay-opacity, 0.4);
+}
+
+/* ===================================
+   GLOBAL OVERLAY
+   =================================== */
+#global-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 0;
+    pointer-events: none;
+    transition: background-color 2.5s ease;
+}
+
+#global-overlay.clear-view {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   OPENING SCROLL ANIMATION
+   =================================== */
+#opening-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 5, 5, 0.98);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease 1s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#story-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('story_background.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+    animation: breathe 10s infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.scroll-container {
+    position: relative;
+    width: 320px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.scroll-roller {
+    position: absolute;
+    width: 360px;
+    height: 45px;
+    background: linear-gradient(90deg, var(--brown-dark), var(--brown-wood), var(--brown-dark));
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1a100e;
+    transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.scroll-roller::after,
+.scroll-roller::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    width: 15px;
+    height: 33px;
+    background: radial-gradient(circle, var(--gold), var(--gold-dark));
+    border-radius: 3px;
+    border: 1px solid #000;
+}
+
+.scroll-roller::before { left: 20px; }
+.scroll-roller::after { right: 20px; }
+.scroll-roller.top { top: 0; }
+.scroll-roller.bottom { bottom: 0; }
+
+.tassel-string {
+    position: absolute;
+    top: 25px;
+    width: 4px;
+    height: 150px;
+    background: repeating-linear-gradient(45deg, #800000, #800000 5px, #d4af37 5px, #d4af37 10px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s, transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+    transform-origin: top center;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.tassel-string.left {
+    left: 40px;
+    transform: rotate(15deg) scaleY(0);
+}
+
+.tassel-string.right {
+    right: 40px;
+    transform: rotate(-15deg) scaleY(0);
+}
+
+.tassel-string::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -6px;
+    width: 16px;
+    height: 25px;
+    background: conic-gradient(from 180deg at 50% 0%, #800000, #d4af37, #800000);
+    border-radius: 5px 5px 50% 50%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+}
+
+.tassel-string::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: -4px;
+    width: 12px;
+    height: 8px;
+    background: #d4af37;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.open-state .tassel-string {
+    opacity: 1;
+    transform: rotate(0deg) scaleY(1);
+}
+
+.scroll-parchment {
+    position: absolute;
+    top: 22px;
+    width: 300px;
+    height: 0;
+    background-color: var(--parchment);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    border-left: 2px solid var(--brown-wood);
+    border-right: 2px solid var(--brown-wood);
+    overflow: hidden;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 1.2s cubic-bezier(0.45, 0, 0.55, 1), top 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.scroll-content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease 0.4s;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+}
+
+.custom-logo {
+    max-width: 200px;
+    max-height: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.scroll-content h2 {
+    font-family: var(--script-font);
+    color: var(--maroon);
+    font-size: 3rem;
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.scroll-content span {
+    font-family: var(--display-font);
+    color: var(--gold-dark);
+    font-size: 1.8rem;
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.scroll-seal {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.seal-image {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+}
+
+.open-state .scroll-roller.top { transform: translateY(-175px); }
+.open-state .scroll-roller.bottom { transform: translateY(175px); }
+.open-state .scroll-parchment { height: 350px; top: -153px; }
+.open-state .scroll-seal { opacity: 0; transform: scale(1.5); pointer-events: none; }
+.open-state .scroll-content { opacity: 1; transform: scale(1); }
+
+.tap-hint {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    text-align: center;
+    animation: pulse 2s infinite;
+    transition: opacity 0.5s;
+    z-index: 20;
+}
+
+.tap-hint p {
+    font-family: var(--script-font);
+    color: var(--gold);
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.tap-hint span {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ccc;
+    display: block;
+    margin-top: 5px;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* ===================================
+   FLOWER PETAL RAIN
+   =================================== */
+#rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    display: none;
+}
+
+.flower-petal {
+    position: absolute;
+    top: -20px;
+    width: 14px;
+    height: 14px;
+    border-radius: 0% 100% 0% 100%;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    animation: fall-spin linear forwards;
+    opacity: 0.9;
+}
+
+.flower-petal.marigold {
+    background: linear-gradient(45deg, #ffca28, #fb8c00);
+}
+
+.flower-petal.rose {
+    background: linear-gradient(45deg, #ef5350, #f8bbd0);
+}
+
+@keyframes fall-spin {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.8; }
+}
+
+/* ===================================
+   HANGING DECORATIONS
+   =================================== */
+.hanging-decor {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 250px;
+    pointer-events: none;
+    z-index: 5;
+    display: none;
+}
+
+.show-content .hanging-decor {
+    display: block;
+}
+
+.hanging-decor.hidden {
+    transform: translateY(-150%);
+    opacity: 0;
+}
+
+.umbrella {
+    position: absolute;
+    top: 0px;
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(2px 5px 8px rgba(0,0,0,0.5));
+    transform-origin: top center;
+    animation: swing 6s infinite ease-in-out;
+}
+
+.umbrella.u1 { left: 0px; animation-delay: 0s; }
+.umbrella.u2 { left: 130px; top: -40px; transform: scale(0.8); animation-delay: 1s; }
+.umbrella.u3 { right: 130px; top: -40px; transform: scale(0.8); animation-delay: 2s; }
+.umbrella.u4 { right: 0px; animation-delay: 0.5s; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+}
+
+/* ===================================
+   MUSIC PLAYER
+   =================================== */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(212, 175, 55, 0.9);
+    border-radius: 50px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.music-toggle {
+    background: none;
+    border: none;
+    color: var(--brown-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+
+.music-toggle.playing {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===================================
+   MAIN CONTENT
+   =================================== */
+#main-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-bottom: 50px; */
+    position: relative;
+    z-index: 10;
+}
+
+.show-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ===================================
+   CARDS STYLING
+   =================================== */
+.hero-card {
+    background-image: linear-gradient(rgba(255, 250, 240, 0.9), rgba(255, 250, 240, 0.9)), url('card_bg.png');
+    background-size: cover;
+    border-radius: 12px;
+    border: 2px solid var(--gold);
+    padding: 50px 25px 40px;
+    width: 95%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.thankyou-card {
+    background-image: linear-gradient(rgba(255, 250, 240, 0.9), rgba(255, 250, 240, 0.9)), url('card_bg_ty.png');
+    background-size: cover;
+    border-radius: 12px;
+    border: 2px solid var(--gold);
+    padding: 50px 25px 40px;
+    width: 95%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    margin-top: 40px;
+    margin-bottom: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card > *,
+.thankyou-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.muggu-corners::after,
+.muggu-corners::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.muggu-corners::before {
+    top: 10px;
+    left: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M50,5 C75,5 95,25 95,50 C95,75 75,95 50,95 C25,95 5,75 5,50 C5,25 25,5 50,5 Z'/%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M50,15 C70,15 85,30 85,50 C85,70 70,85 50,85 C30,85 15,70 15,50 C15,30 30,15 50,15 Z'/%3E%3Cpath fill='%23d4af37' d='M50,25 C65,25 75,35 75,50 C75,65 65,75 50,75 C35,75 25,65 25,50 C25,35 35,25 50,25 Z'/%3E%3C/svg%3E");
+}
+
+.muggu-corners::after {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(180deg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M50,5 C75,5 95,25 95,50 C95,75 75,95 50,95 C25,95 5,75 5,50 C5,25 25,5 50,5 Z'/%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M50,15 C70,15 85,30 85,50 C85,70 70,85 50,85 C30,85 15,70 15,50 C15,30 30,15 50,15 Z'/%3E%3Cpath fill='%23d4af37' d='M50,25 C65,25 75,35 75,50 C75,65 65,75 50,75 C35,75 25,65 25,50 C25,35 35,25 50,25 Z'/%3E%3C/svg%3E");
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+/* Sacred Corner Symbols */
+.corner-symbol {
+    position: absolute;
+    z-index: 10;
+}
+
+.corner-symbol.top-left {
+    top: 15px;
+    left: 15px;
+}
+
+.corner-symbol.top-right {
+    top: 15px;
+    right: 15px;
+}
+
+.symbol-om,
+.symbol-swastika {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--maroon);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7),
+                 0 0 30px rgba(218, 165, 32, 0.5),
+                 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: divine-glow 3s ease-in-out infinite;
+    display: inline-block;
+    padding: 10px 15px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.25), rgba(218, 165, 32, 0.15) 60%, transparent);
+    border-radius: 50%;
+    border: 2px solid rgba(218, 165, 32, 0.4);
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3),
+                inset 0 2px 5px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.symbol-om:hover,
+.symbol-swastika:hover {
+    transform: scale(1.15) rotate(5deg);
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.9),
+                 0 0 50px rgba(218, 165, 32, 0.7),
+                 0 2px 6px rgba(0, 0, 0, 0.4);
+    border-color: rgba(218, 165, 32, 0.6);
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.5),
+                inset 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes divine-glow {
+    0%, 100% {
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.7),
+                     0 0 30px rgba(218, 165, 32, 0.5),
+                     0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 25px rgba(255, 215, 0, 0.9),
+                     0 0 50px rgba(218, 165, 32, 0.7),
+                     0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.wedding-text {
+    font-family: var(--script-font);
+    font-size: 2.8rem;
+    color: var(--gold-dark);
+    margin: 15px 0;
+    display: block;
+    text-shadow: 0 2px 4px rgba(218, 165, 32, 0.3);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.subhalekha {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.couple-names {
+    font-family: var(--script-font);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: var(--maroon);
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.couple-names-small {
+    font-family: var(--script-font);
+    font-size: 2.5rem;
+    color: var(--maroon);
+    margin-top: 15px;
+}
+
+.ampersand {
+    font-family: var(--script-font);
+    font-size: 2.5rem;
+    color: var(--gold-dark);
+    margin: 10px 0;
+    display: block;
+}
+
+.telugu-names {
+    font-family: var(--display-font);
+    font-size: 2rem;
+    color: var(--brown-wood);
+    margin-top: 15px;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+
+.date-divider {
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 15px 0;
+    margin: 20px 0;
+    font-family: var(--body-font);
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    color: var(--card-text);
+    font-weight: 700;
+}
+
+.location {
+    font-family: var(--body-font);
+    font-size: 1.1rem;
+    color: var(--card-text);
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.location i {
+    color: var(--maroon);
+    margin-right: 8px;
+}
+
+/* ===================================
+   COUNTDOWN TIMER
+   =================================== */
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.cd-box {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    width: 70px;
+    padding: 15px 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.cd-box:hover {
+    transform: translateY(-5px);
+}
+
+.cd-num {
+    font-family: var(--body-font);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--maroon);
+    display: block;
+}
+
+.cd-label {
+    font-size: 0.7rem;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ===================================
+   FAMILY SECTION
+   =================================== */
+.family-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+    width: 100%;
+    gap: 20px;
+}
+
+.family-group {
+    flex: 1;
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.family-group:not(:last-child) {
+    border-right: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.family-group:only-child {
+    flex: 0 0 100%;
+    max-width: 500px;
+}
+
+.side-tag {
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--maroon);
+    margin-bottom: 15px;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.family-photo-container {
+    width: 140px;
+    height: 180px;
+    margin: 0 auto 15px;
+    border-radius: 15px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(78, 52, 46, 0.4);
+    overflow: hidden;
+    background-color: var(--parchment);
+    transition: all 0.5s ease;
+}
+
+.family-group:only-child .family-photo-container {
+    width: 180px;
+    height: 220px;
+    border-width: 4px;
+    margin-bottom: 25px;
+}
+
+.family-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    filter: sepia(0.15) contrast(1.05) brightness(0.95);
+    transition: transform 0.5s ease;
+}
+
+/* Increase brightness only for Gayathri's photo */
+.family-photo[src="gayathri.jpg"] {
+    filter: sepia(0.15) contrast(1.05) brightness(1.05);
+}
+
+.family-group:hover .family-photo {
+    transform: scale(1.1);
+}
+
+.family-header {
+    font-family: var(--script-font);
+    font-size: 1.6rem;
+    color: var(--card-text);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    line-height: 1.1;
+    text-align: center;
+    min-height: 3.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.family-header .te {
+    font-family: var(--display-font);
+    font-size: 1.2rem;
+    color: var(--gold-dark);
+    display: block;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.names-list p {
+    margin: 6px 0;
+    line-height: 1.4;
+    font-size: 1rem;
+    color: var(--brown-dark);
+    font-weight: 600;
+    text-align: center;
+}
+
+.names-list .te {
+    display: block;
+    font-family: var(--display-font);
+    font-size: 1.1rem;
+    color: #5d4037;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* ===================================
+   INVITATION MESSAGE
+   =================================== */
+.invite-msg {
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px 25px;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    font-weight: 450;
+}
+
+.invite-msg p {
+    font-family: var(--body-font);
+    font-size: 1.1rem;
+    color: var(--parchment);
+    line-height: 1.6;
+    margin: 0 0 10px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.msg-highlight {
+    font-family: var(--script-font);
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-top: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    display: block;
+}
+
+/* ===================================
+   SCHEDULE SECTION
+   =================================== */
+.schedule-title {
+    font-family: var(--script-font);
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    font-weight: 600;
+    position: relative;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8),
+                 0 0 20px rgba(255, 215, 0, 0.5),
+                 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.schedule-title::before,
+.schedule-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.schedule-title::before {
+    right: calc(100% + 20px);
+}
+
+.schedule-title::after {
+    left: calc(100% + 20px);
+}
+
+.schedule-title::before,
+.schedule-title::after {
+    content: '✨';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--gold);
+    animation: sparkle-rotate 4s linear infinite;
+}
+
+.schedule-title::before {
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.schedule-title::after {
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
+                     0 0 40px rgba(218, 165, 32, 0.4),
+                     0 3px 6px rgba(0, 0, 0, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.9),
+                     0 0 60px rgba(218, 165, 32, 0.6),
+                     0 3px 8px rgba(0, 0, 0, 0.8);
+    }
+}
+
+@keyframes sparkle-rotate {
+    0%, 100% {
+        transform: translateY(-50%) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-50%) rotate(180deg) scale(1.2);
+    }
+}
+
+.schedule-sub {
+    font-family: var(--display-font);
+    font-size: 1.6rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    font-weight: 600;
+}
+
+.events-wrapper {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 15px;
+    position: relative;
+}
+
+/* ===================================
+   EVENT CARDS
+   =================================== */
+.date-card {
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--card-border);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.date-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+}
+
+.date-card.wedding {
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    transform: scale(1.02);
+}
+
+.date-header {
+    position: relative;
+    width: 100%;
+    padding: 18px 20px;
+    background: var(--date-strip-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--brown-dark);
+    border-bottom: 1px solid var(--card-border);
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.wedding .date-header {
+    background: rgba(255, 228, 181, 0.95);
+    color: var(--maroon);
+    font-weight: 700;
+}
+
+.event-item {
+    padding: 25px 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(2px);
+    border-bottom: 1px dashed rgba(184, 134, 11, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.event-item:last-child {
+    border-bottom: none;
+}
+
+.ev-title {
+    font-family: var(--display-font);
+    font-size: 1.5rem;
+    color: var(--maroon);
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.ev-telugu {
+    font-family: var(--display-font);
+    font-size: 1.3rem;
+    color: var(--gold-dark);
+    margin: 6px 0 15px;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.ev-detail {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--card-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.ev-detail i {
+    width: 20px;
+    text-align: center;
+    color: var(--maroon);
+    font-size: 1.1rem;
+}
+
+.location-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.map-icon {
+    color: var(--maroon);
+    font-size: 1rem;
+    padding: 8px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--gold);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: inline-flex;
+    margin-left: 5px;
+}
+
+.map-icon:hover {
+    background: var(--gold);
+    color: white;
+    transform: scale(1.1);
+}
+
+.map-icon:active {
+    transform: scale(0.95);
+}
+
+.map-embed {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -25px;
+    border-radius: 0 0 15px 15px;
+}
+
+.map-embed.open {
+    height: 250px;
+    margin-top: 20px;
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0 0 15px 15px;
+}
+
+.open-maps-btn {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 15px 20px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
+}
+
+.open-maps-btn:hover {
+    background: linear-gradient(135deg, #3367d6, #2d8e47);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(66, 133, 244, 0.4);
+}
+
+.open-maps-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
+}
+
+.open-maps-btn i {
+    margin-right: 8px;
+}
+
+/* Card Specific Styles */
+/* Card 1 - Soft Pink/Rose Theme (Groom Making) */
+.card-1 {
+    background-image: linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 228, 240, 0.9)), url('card_bg_1.png');
+    border-color: #f48fb1;
+    box-shadow: 0 8px 20px rgba(244, 143, 177, 0.3);
+}
+
+.card-1 .date-header {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.95), rgba(255, 192, 203, 0.95));
+    color: #880e4f;
+    border-bottom: 2px solid #f48fb1;
+}
+
+.card-1 .ev-title { color: #c2185b; font-weight: 600; }
+.card-1 .ev-telugu { color: #ad1457; }
+.card-1 .ev-detail { color: #4a0020; }
+.card-1 .ev-detail i { color: #880e4f; }
+.card-1 .map-icon { border-color: #f48fb1; color: #880e4f; background: rgba(255, 182, 193, 0.2); }
+
+/* Card 2 - Soft Golden Theme (Groom Haldi) */
+.card-2 {
+    background-image: linear-gradient(rgba(255, 248, 220, 0.9), rgba(255, 243, 196, 0.9)), url('card_bg_2.png');
+    border-color: #e6c84a;
+    box-shadow: 0 8px 20px rgba(230, 200, 74, 0.3);
+}
+
+.card-2 .date-header {
+    background: linear-gradient(135deg, rgba(240, 220, 130, 0.95), rgba(230, 200, 100, 0.95));
+    color: #b8860b;
+    border-bottom: 2px solid #e6c84a;
+}
+
+.card-2 .ev-title { color: #cd9a2b; font-weight: 600; }
+.card-2 .ev-telugu { color: #b8860b; }
+.card-2 .ev-detail { color: #5d4e37; }
+.card-2 .ev-detail i { color: #cd9a2b; }
+.card-2 .map-icon { border-color: #e6c84a; color: #b8860b; background: rgba(240, 220, 130, 0.2); }
+
+/* Card 3 - Lavender Purple Theme (Bride Making) */
+.card-3 {
+    background-image: linear-gradient(rgba(243, 229, 245, 0.9), rgba(238, 224, 245, 0.9)), url('card_bg_3.png');
+    border-color: #ce93d8;
+    box-shadow: 0 8px 20px rgba(206, 147, 216, 0.3);
+}
+
+.card-3 .date-header {
+    background: linear-gradient(135deg, rgba(225, 190, 231, 0.95), rgba(206, 147, 216, 0.95));
+    color: #6a1b9a;
+    border-bottom: 2px solid #ce93d8;
+}
+
+.card-3 .ev-title { color: #8e24aa; font-weight: 600; }
+.card-3 .ev-telugu { color: #7b1fa2; }
+.card-3 .ev-detail { color: #4a148c; }
+.card-3 .ev-detail i { color: #8e24aa; }
+.card-3 .map-icon { border-color: #ce93d8; color: #8e24aa; background: rgba(225, 190, 231, 0.2); }
+
+/* Card 4 - Turmeric Orange Theme (Bride Haldi) */
+.card-4 {
+    background-image: linear-gradient(rgba(255, 243, 224, 0.9), rgba(255, 236, 179, 0.9)), url('card_bg_4.png');
+    border-color: #ffb74d;
+    box-shadow: 0 8px 20px rgba(255, 183, 77, 0.4);
+}
+
+.card-4 .date-header {
+    background: linear-gradient(135deg, rgba(255, 183, 77, 0.95), rgba(255, 167, 38, 0.95));
+    color: #e65100;
+    border-bottom: 2px solid #ffb74d;
+}
+
+.card-4 .ev-title { color: #f57c00; font-weight: 600; }
+.card-4 .ev-telugu { color: #ef6c00; }
+.card-4 .ev-detail { color: #3e2723; }
+.card-4 .ev-detail i { color: #f57c00; }
+.card-4 .map-icon { border-color: #ffb74d; color: #f57c00; background: rgba(255, 183, 77, 0.2); }
+
+/* Card 5 - Emerald Green Theme (Pradhanam) */
+.card-5 {
+    background-image: linear-gradient(rgba(232, 245, 233, 0.9), rgba(220, 237, 220, 0.9)), url('card_bg_1.png');
+    border-color: #81c784;
+    box-shadow: 0 8px 20px rgba(129, 199, 132, 0.3);
+}
+
+.card-5 .date-header {
+    background: linear-gradient(135deg, rgba(165, 214, 167, 0.95), rgba(129, 199, 132, 0.95));
+    color: #2e7d32;
+    border-bottom: 2px solid #81c784;
+}
+
+.card-5 .ev-title { color: #388e3c; font-weight: 600; }
+.card-5 .ev-telugu { color: #2e7d32; }
+.card-5 .ev-detail { color: #1b5e20; }
+.card-5 .ev-detail i { color: #388e3c; }
+.card-5 .map-icon { border-color: #81c784; color: #388e3c; background: rgba(165, 214, 167, 0.2); }
+
+/* Card 6 - Teal/Cyan Theme (Reception Dinner) */
+.card-6 {
+    background-image: linear-gradient(rgba(224, 247, 250, 0.9), rgba(178, 235, 242, 0.9)), url('card_bg_1.png');
+    border-color: #4dd0e1;
+    box-shadow: 0 8px 20px rgba(77, 208, 225, 0.3);
+}
+
+.card-6 .date-header {
+    background: linear-gradient(135deg, rgba(128, 222, 234, 0.95), rgba(77, 208, 225, 0.95));
+    color: #006064;
+    border-bottom: 2px solid #4dd0e1;
+}
+
+.card-6 .ev-title { color: #00838f; font-weight: 600; }
+.card-6 .ev-telugu { color: #006064; }
+.card-6 .ev-detail { color: #004d40; }
+.card-6 .ev-detail i { color: #00838f; }
+.card-6 .map-icon { border-color: #4dd0e1; color: #00838f; background: rgba(128, 222, 234, 0.2); }
+
+/* Card 7 - Very Bright Golden Theme (Wedding Ceremony) ⭐ */
+.card-7 {
+    background-image: linear-gradient(rgba(255, 253, 150, 0.97), rgba(255, 250, 130, 0.97)), url('card_bg_3.png');
+    border-color: #ffd700;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+}
+
+.card-7 .date-header {
+    background: linear-gradient(135deg, rgba(255, 240, 100, 0.98), rgba(255, 235, 80, 0.98));
+    color: #b8860b;
+    border-bottom: 3px solid #ffd700;
+    font-weight: 700;
+}
+
+.card-7 .ev-title { color: #cc9900; font-weight: 700; text-shadow: 0 1px 2px rgba(204, 153, 0, 0.3); }
+.card-7 .ev-telugu { color: #b8860b; font-weight: 600; }
+.card-7 .ev-detail { color: #8b6914; }
+.card-7 .ev-detail i { color: #cc9900; }
+.card-7 .map-icon { border-color: #ffd700; color: #b8860b; background: rgba(255, 240, 100, 0.35); }
+
+/* Card 8 - Royal Blue Theme (Reception) */
+.card-8 {
+    background-image: linear-gradient(rgba(227, 242, 253, 0.9), rgba(187, 222, 251, 0.9)), url('card_bg_4.png');
+    border-color: #64b5f6;
+    box-shadow: 0 8px 20px rgba(100, 181, 246, 0.3);
+}
+
+.card-8 .date-header {
+    background: linear-gradient(135deg, rgba(144, 202, 249, 0.95), rgba(100, 181, 246, 0.95));
+    color: #0d47a1;
+    border-bottom: 2px solid #64b5f6;
+}
+
+.card-8 .ev-title { color: #1565c0; font-weight: 600; }
+.card-8 .ev-telugu { color: #0d47a1; }
+.card-8 .ev-detail { color: #01579b; }
+.card-8 .ev-detail i { color: #1565c0; }
+.card-8 .map-icon { border-color: #64b5f6; color: #1565c0; background: rgba(144, 202, 249, 0.2); }
+
+/* Card 9 - Coral/Peach Theme (Sangeet Night) */
+.card-9 {
+    background-image: linear-gradient(rgba(255, 236, 230, 0.9), rgba(255, 224, 217, 0.9)), url('card_bg_2.png');
+    border-color: #ff8a65;
+    box-shadow: 0 8px 20px rgba(255, 138, 101, 0.3);
+}
+
+.card-9 .date-header {
+    background: linear-gradient(135deg, rgba(255, 171, 145, 0.95), rgba(255, 138, 101, 0.95));
+    color: #bf360c;
+    border-bottom: 2px solid #ff8a65;
+}
+
+.card-9 .ev-title { color: #d84315; font-weight: 600; }
+.card-9 .ev-telugu { color: #bf360c; }
+.card-9 .ev-detail { color: #3e2723; }
+.card-9 .ev-detail i { color: #d84315; }
+.card-9 .map-icon { border-color: #ff8a65; color: #d84315; background: rgba(255, 171, 145, 0.2); }
+
+/* ===================================
+   ANIMATION STAGE
+   =================================== */
+#animation-stage {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 250px;
+    pointer-events: none;
+    z-index: 2;
+    display: none;
+}
+
+.show-content #animation-stage {
+    display: block;
+}
+
+.scene {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0;
+}
+
+.scene.active {
+    opacity: 1;
+}
+
+.elephant,
+.person {
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    width: auto;
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.6));
+    transition: all 1.5s ease-out;
+    object-fit: contain;
+}
+
+.scene-elephants .elephant {
+    bottom: -10px;
+    transition: opacity 1s ease;
+}
+
+.scene-elephants .left {
+    transform: scaleX(-1);
+}
+
+.scene-elephants .left.e1 {
+    left: -20px;
+    z-index: 2;
+}
+
+.scene-elephants .left.e2 {
+    left: 160px;
+    transform: scaleX(-1) scale(0.75);
+    bottom: 15px;
+    z-index: 1;
+    filter: brightness(0.9);
+}
+
+.scene-elephants .right.e1 {
+    right: -20px;
+    z-index: 2;
+}
+
+.scene-elephants .right.e2 {
+    right: 160px;
+    transform: scale(0.75);
+    bottom: 15px;
+    z-index: 1;
+    filter: brightness(0.9);
+}
+
+.scene-elephants:not(.active) .elephant {
+    opacity: 0;
+}
+
+.person.left { left: 0; }
+.person.right { right: 0; }
+
+.scene-entry .person.left {
+    left: -250px;
+    opacity: 0;
+}
+
+.scene-entry .person.right {
+    right: -250px;
+    opacity: 0;
+}
+
+.scene-entry.active .person.left {
+    left: 20px;
+    opacity: 1;
+}
+
+.scene-entry.active .person.right {
+    right: 20px;
+    opacity: 1;
+}
+
+.scene-entry .person {
+    height: 160px !important;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 768px) {
+    .scroll-container {
+        width: 280px;
+    }
+    
+    .scroll-roller {
+        width: 320px;
+        height: 40px;
+    }
+    
+    .scroll-parchment {
+        width: 260px;
+    }
+    
+    .custom-logo {
+        max-width: 150px;
+        max-height: 120px;
+    }
+    
+    .scroll-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .scroll-content span {
+        font-size: 1.5rem;
+    }
+    
+    .couple-names {
+        font-size: 2.8rem;
+    }
+    
+    .telugu-names {
+        font-size: 1.6rem;
+    }
+    
+    .family-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .family-group:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+        padding-bottom: 20px;
+    }
+    
+    .countdown-grid {
+        gap: 10px;
+    }
+    
+    .cd-box {
+        width: 60px;
+        padding: 12px 5px;
+    }
+    
+    .cd-num {
+        font-size: 1.5rem;
+    }
+    
+    .schedule-title {
+        font-size: 2rem;
+    }
+    
+    .schedule-sub {
+        font-size: 1.3rem;
+    }
+    
+    .elephant,
+    .person {
+        height: 140px;
+    }
+    
+    .scene-entry .person {
+        height: 110px !important;
+    }
+    
+    .scene-entry.active .person.left {
+        left: -10px;
+    }
+    
+    .scene-entry.active .person.right {
+        right: 10px;
+    }
+    
+    .umbrella {
+        width: 120px;
+    }
+    
+    .umbrella.u2,
+    .umbrella.u3 {
+        display: none;
+    }
+    
+    .music-player {
+        top: 15px;
+        right: 15px;
+        padding: 8px;
+    }
+    
+    .music-toggle {
+        padding: 6px 10px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-card,
+    .thankyou-card {
+        padding: 30px 20px;
+        margin-top: 20px;
+    }
+    
+    .couple-names {
+        font-size: 2.2rem;
+    }
+    
+    .telugu-names {
+        font-size: 1.4rem;
+    }
+    
+    .date-divider {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+    
+    .ev-title {
+        font-size: 1.3rem;
+    }
+    
+    .ev-telugu {
+        font-size: 1.1rem;
+    }
+    
+    .family-photo-container {
+        width: 120px;
+        height: 150px;
+    }
+    
+    .tap-hint p {
+        font-size: 1.6rem;
+    }
+}
+
+/* ===================================
+   ADDITIONAL ANIMATIONS
+   =================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* ===================================
+   SCROLLBAR STYLING
+   =================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-dark);
+}
+
+/* ===================================
+   SELECTION STYLING
+   =================================== */
+::selection {
+    background: var(--gold);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--gold);
+    color: white;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.website-footer {
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 60px;
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.website-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-single-line {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+/* Made with Bob */
